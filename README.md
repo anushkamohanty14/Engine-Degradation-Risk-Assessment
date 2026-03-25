@@ -79,22 +79,6 @@ Tested on combined FD001 + FD003 datasets — **45,351 training samples**, **9,0
 
 ---
 
-## Project Structure
-
-```
-├── main.ipynb                  # Orchestration notebook — full pipeline end to end
-├── config.py                   # Dataset paths, hyperparameters, thresholds
-├── data_loader.py              # Loading, merging, preprocessing CMAPSS files
-├── clustering.py               # Sensor scaling, KMeans/GMM, stage derivation
-├── classification.py           # Rolling features + stage classifiers
-├── regression.py               # TTNS calculation + regression models
-├── risk_assessment.py          # Risk score computation + alert generation
-├── plotting.py                 # Visualizations: PCA, sensor trends, risk plots
-└── CMaps/                      # CMAPSS dataset files
-```
-
----
-
 ## What Makes This Interesting
 
 Most RUL (Remaining Useful Life) prediction work treats this as a pure regression problem — predict cycles until failure. This project reframes it as a **staged degradation problem**, which is more realistic for maintenance scheduling: knowing *which degradation stage* an engine is in, and *how long until the next stage*, gives operators more actionable information than a single RUL number.
